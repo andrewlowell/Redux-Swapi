@@ -10,10 +10,14 @@ import rootReducer from "./reducers";
 // thunk from redux-thunk
 // logger from redux-logger
 // rootReducer from ./reducers
+import { applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 
 const store = createStore(
-  rootReducer
+  rootReducer,
   /* applyMiddleware goes here */
+  applyMiddleware(thunk, logger)
 );
 
 ReactDOM.render(
